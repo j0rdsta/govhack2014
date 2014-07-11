@@ -13,13 +13,14 @@
 </head>
 
 <body>
-	
+
 	@include('layouts.header')
 
 	@yield('content')
 
 	@include('layouts.footer')
 
+	{{ HTML::script('https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=onGoogleReady') }}
 	{{ HTML::script('build/js/app.min.js?v=1.1') }}
 
 </body>
