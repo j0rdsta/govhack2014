@@ -81,10 +81,7 @@ function initialize() {
 		map.setCenter(initialLocation);
 	}
 
-
 }
-
-
 
 function createToggles() {
 	var toggles = "";
