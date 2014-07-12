@@ -24,10 +24,17 @@ Google Map
 
 		<section class="sidebar">
 			<ul class="sidenav">
-				<li><a href="#">Plan a journey</a></li>
-				<li><a href="#">Plan a journey</a></li>
-				<li><a href="#">Plan a journey</a></li>
-				<li><a href="#">Plan a journey</a></li>
+				<li><a href="#">Plan a journey</a>
+					<ul class="child">
+						<li><a href="#">Sub child</a></li>
+						<li><a href="#">Sub child</a></li>
+						<li><a href="#">Sub child</a></li>
+						<li><a href="#">Sub child</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Get Directions</a></li>
+				<li><a href="#">Filter Map</a></li>
+				<li><a href="#">Quick Locations</a></li>
 			</ul>
 		</section>	
 	</section>
