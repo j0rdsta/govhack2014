@@ -29,3 +29,4 @@ Route::get('map', function()
 
 Route::resource('cities', 'CitiesController');
 Route::resource('amenities', 'AmenitiesController');
+Route::resource('amenitylocations', 'AmenityLocationsController');
