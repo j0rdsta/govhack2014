@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('home.index');
+	return Redirect::to('/map');
 });
 
 Route::get('/admin', function()

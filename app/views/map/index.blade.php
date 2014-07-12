@@ -8,11 +8,6 @@ Google Map
 
 <div class="container">
 	<section class="content">
-		<!-- <div class="row"> -->
-<!-- 			<div class="large-4 columns">
-				
-			</div> -->
-			<!-- <div class="large-8 columns"> -->
 		<div id="map-canvas" class="flex-video"></div>
 		
 		<section class="map-tools">
@@ -20,8 +15,6 @@ Google Map
 			<ul class="no-bullet toggles"></ul>
 		</section>
 
-			<!-- </div> -->
-		<!-- </div> -->
 		<div class="row">
 			<div class="large-12 columns">
 				<div id="status"></div>
