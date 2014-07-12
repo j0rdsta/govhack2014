@@ -1,0 +1,10 @@
+[
+	{
+		"url": "http://data.gov.au/dataset/eb431735-a2cf-4abd-acf3-f84a099d0b02/resource/5e59cd33-8729-4b54-998f-f59167a74f94/download/gcroadclosure.kml",
+		"name": "Road Closures"
+	},
+	{
+		"url": "http://data.gov.au/dataset/03ad85ac-3259-4f6f-9479-509ea4b8957d/resource/4f6f5d8f-c343-4014-a009-e08101ecc7ff/download/tableoutdoor.kmz",
+		"name": "Outdoor Tables"
+	}
+]

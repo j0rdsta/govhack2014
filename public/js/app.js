@@ -25,25 +25,7 @@ var styles = [
 }
 ];
 
-var layers=[];
-
-layers[0] = new google.maps.KmlLayer({
-	// Road Closures
-	url: 'http://data.gov.au/dataset/eb431735-a2cf-4abd-acf3-f84a099d0b02/resource/5e59cd33-8729-4b54-998f-f59167a74f94/download/gcroadclosure.kml',
-	name: 'Road Closures',
-	suppressInfoWindows: true,
-	preserveViewport: true
-});
-
-layers[1] = new google.maps.KmlLayer({
-	// Outdoor Tables
-	url: 'http://data.gov.au/dataset/03ad85ac-3259-4f6f-9479-509ea4b8957d/resource/4f6f5d8f-c343-4014-a009-e08101ecc7ff/download/tableoutdoor.kmz',
-	name: 'Outdoor Tables',
-	suppressInfoWindows: true,
-	preserveViewport: true
-});
-
-var map;
+var layers=[], map;
 
 function initialize() {
 	var goldcoast = new google.maps.LatLng(-28.0293756, 153.4218931);
@@ -53,7 +35,7 @@ function initialize() {
 		styles: styles
 	}
 	map = new google.maps.Map(document.getElementById("map-canvas"),myOptions);
-	createToggles();
+	getMapData();
 
 	if(navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
@@ -83,10 +65,28 @@ function initialize() {
 
 }
 
+var mapData = [];
+
+function getMapData() {
+	$.ajax({
+		url: "js/testdata.json"
+	}).done(function(data) {
+		mapData = data;
+		for (var i = 0; i < mapData.length; i++) {
+			layers[i] = new google.maps.KmlLayer({
+				url: mapData[i].url,
+				name: mapData[i].name,
+				suppressInfoWindows: true,
+				preserveViewport: true
+			});
+		}
+		createToggles();
+	});
+}
+
 function createToggles() {
 	var toggles = "";
 	for (var i = 0; i < layers.length; i++) {
-		console.log(layers[i]);
 		toggles += '<li><input type="checkbox" id="layer_'+i+'" onclick="toggleLayers('+i+');"/> '+layers[i].name+'</li>';
 	}
 	$("ul.toggles").html(toggles);
