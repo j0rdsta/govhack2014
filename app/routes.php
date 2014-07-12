@@ -13,13 +13,18 @@
 
 Route::get('/', function()
 {
-	return View::make('home.home');
+	return View::make('home.index');
 });
 
 Route::get('/admin', function()
 {
 	$cities = City::all();
 	return View::make('admin.index', compact('cities'));
+});
+
+Route::get('map', function()
+{
+	return View::make('map.index');
 });
 
 Route::resource('cities', 'CitiesController');

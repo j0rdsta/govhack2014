@@ -1,5 +1,9 @@
 @extends("layouts.master")
 
+@section('title')
+Google Map
+@endsection
+
 @section("content")
 
 <div class="container">
