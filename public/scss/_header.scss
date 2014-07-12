@@ -3,6 +3,19 @@ header {
 	background: white;
 	// max-height:15%;
 	// overflow: hidden;
+
+	h3 {
+		line-height: 1.2;
+	}
+
+	h1 a {
+		color: #fff;
+
+		&:hover {
+			color: darken(#fff, 10%);
+		}
+	}
+
 	ul.inline-list {
 		line-height: 80px;
 		vertical-align: middle;
