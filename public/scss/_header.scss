@@ -1,12 +1,12 @@
-header {
-	position: absolute;
-	top: 0;
-	width: 100%;
+header {	
 	z-index: 99;
 	background: white;
+	max-height:15%;
+	overflow: hidden;
 	ul.inline-list {
 		line-height: 80px;
 		vertical-align: middle;
+		text-align: right;
 		margin-bottom: 0;
 		li {
 			line-height: inherit;
