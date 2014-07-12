@@ -1,8 +1,8 @@
-header {	
+header {
 	z-index: 99;
 	background: white;
-	max-height:15%;
-	overflow: hidden;
+	// max-height:15%;
+	// overflow: hidden;
 	ul.inline-list {
 		line-height: 80px;
 		vertical-align: middle;
@@ -18,6 +18,6 @@ header {
 				font-weight: 300;
 				text-transform: uppercase;
 			}
-		}	
+		}
 	}
 }
