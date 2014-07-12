@@ -71,33 +71,34 @@ function initialize() {
 }
 
 var mapData = [];
-
+var marker;
 function getMapData() {
 	$.ajax({
-		url: "amenities"
+		url: "amenitylocations"
 	}).done(function(data) {
 		mapData = data;
-		for (var i = 0; i < mapData.length; i++) {
-			switch (mapData[i].type) {
-				case "KMZ":
-					layers[i] = new google.maps.KmlLayer({
-						url: mapData[i].url,
-						name: mapData[i].name,
-						type: mapData[i].type,
 
-						preserveViewport: true
-					});
-					break;
+		var infoWindow = new google.maps.InfoWindow(), marker, i;
+	    // Loop through our array of markers & place each one on the map  
+	    for( i = 0; i < mapData.length; i++ ) {
+	    	console.log(mapData[i]['lat']);
+	        var position = new google.maps.LatLng(mapData[i]['lat'], mapData[i]['long']);
+	        marker = new google.maps.Marker({
+	            position: position,
+	            map: map
+	            // title: markers[i][0]
+	        });
+	        
+	        // Allow each marker to have an info window    
+	        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+	            return function() {
+	                infoWindow.setContent(infoWindowContent[i][0]);
+	                infoWindow.open(map, marker);
+	            }
+	        })(marker, i));
 
-				case "JSON":
-					// layers[i] = map.data.loadGeoJson(mapData[i].url);
+	    }		
 
-					break;
-
-				default:
-					break;
-			}
-		}
 		createToggles();
 	});
 }
