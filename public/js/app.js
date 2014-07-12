@@ -1,5 +1,11 @@
 $(document).foundation();
 
+
+$(function() {
+	$('ul.sidenav li.has-child').click(function() {
+		$(this).find('ul.child').slideToggle();
+	});
+});
 // https://developers.google.com/maps/documentation/javascript/styling#styling_the_default_map
 var styles = [
 {

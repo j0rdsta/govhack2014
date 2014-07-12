@@ -24,7 +24,7 @@ Google Map
 
 		<section class="sidebar">
 			<ul class="sidenav">
-				<li><a href="#">Plan a journey</a>
+				<li class="has-child"><a href="#">Plan a journey</a>
 					<ul class="child">
 						<li><a href="#">Sub child</a></li>
 						<li><a href="#">Sub child</a></li>

@@ -44,19 +44,19 @@ section.sidebar {
 				&:hover {
 					background: #222;
 				}
-				&:after {
-					position: absolute;
-					right: 0;
-					margin-top: 10px;
-					margin-right: 20px;
-					content: " ";
-					width: 0;
-					height: 0;
-					border-style: solid;
-					border-width: 10px 5px 0 5px;
-					border-color: #ffffff transparent transparent transparent;					
-				}
 			}
+			&.has-child > a:after {
+				position: absolute;
+				right: 0;
+				margin-top: 10px;
+				margin-right: 20px;
+				content: " ";
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 10px 5px 0 5px;
+				border-color: #ffffff transparent transparent transparent;					
+			}			
 			ul.child {
 				list-style: none;
 				display: none;
@@ -69,9 +69,6 @@ section.sidebar {
 						background: #717171;
 						&:hover {
 							background: $primary-color;
-						}
-						&:after {
-							display: none;
 						}
 					}
 				}
