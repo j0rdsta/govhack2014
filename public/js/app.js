@@ -40,7 +40,7 @@ function initialize() {
 		center: goldcoast,
 		styles: styles
 	}
-	map = new google.maps.Map(document.getElementById("map-canvas"),myOptions);
+	map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
 	getMapData();
 
 	if(navigator.geolocation) {
@@ -75,16 +75,30 @@ var mapData = [];
 
 function getMapData() {
 	$.ajax({
-		url: "js/testdata.json"
+		url: "amenities"
 	}).done(function(data) {
 		mapData = data;
 		for (var i = 0; i < mapData.length; i++) {
-			layers[i] = new google.maps.KmlLayer({
-				url: mapData[i].url,
-				name: mapData[i].name,
-				suppressInfoWindows: true,
-				preserveViewport: true
-			});
+			console.log(mapData[i].type);
+			switch (mapData[i].type) {
+				case "KMZ":
+					layers[i] = new google.maps.KmlLayer({
+						url: mapData[i].url,
+						name: mapData[i].name,
+						type: mapData[i].type,
+						suppressInfoWindows: true,
+						preserveViewport: true
+					});
+					break;
+
+				case "JSON":
+					// layers[i] = map.data.loadGeoJson(mapData[i].url);
+
+					break;
+
+				default:
+					break;
+			}
 		}
 		createToggles();
 	});

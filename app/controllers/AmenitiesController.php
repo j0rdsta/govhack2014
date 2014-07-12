@@ -10,7 +10,7 @@ class AmenitiesController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return Response::json(Amenity::all());
 	}
 
 	/**
@@ -61,7 +61,7 @@ class AmenitiesController extends \BaseController {
 				if (!File::isDirectory(public_path('assets/amenities/icons'))) {
 					// create directory for user files
 					File::makeDirectory(public_path('assets/amenities/icons'), 0700, true);
-				}				
+				}
 
 				try {
 					$image->save(public_path('assets/amenities/icons/') . $amenity->id . ".png");
