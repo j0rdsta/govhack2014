@@ -18,7 +18,9 @@ Route::get('/', function()
 
 Route::get('/admin', function()
 {
-	return View::make('admin.index');
+	$cities = City::all();
+	return View::make('admin.index', compact('cities'));
 });
 
 Route::resource('cities', 'CitiesController');
+Route::resource('amenities', 'AmenitiesController');

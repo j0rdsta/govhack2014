@@ -1,0 +1,1 @@
+/Applications/AMPPS/www/citycompanion.com/app/views/amenities/show.blade.php
