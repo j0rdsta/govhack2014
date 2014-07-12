@@ -21,6 +21,17 @@ div.map {
 	overflow: hidden;
 }
 
+img.logo {
+	padding: 15px 0;
+}
+
+a.left-off-canvas-toggle i {
+	color: #fff;
+	line-height: 1.4;
+	padding: 9px 0;
+	font-size: 36px;
+}
+
 section.sidebar {
 	position:absolute;
 	left:0;
@@ -55,8 +66,8 @@ section.sidebar {
 				height: 0;
 				border-style: solid;
 				border-width: 10px 5px 0 5px;
-				border-color: #ffffff transparent transparent transparent;					
-			}			
+				border-color: #ffffff transparent transparent transparent;
+			}
 			ul.child {
 				list-style: none;
 				display: none;

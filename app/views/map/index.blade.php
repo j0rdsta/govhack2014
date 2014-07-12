@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section('title')
-Google Map
+Map
 @endsection
 
 @section("content")
@@ -22,21 +22,6 @@ Google Map
 			</div>
 		</div>
 
-		<section class="sidebar">
-			<ul class="sidenav">
-				<li class="has-child"><a href="#">Plan a journey</a>
-					<ul class="child">
-						<li><a href="#">Sub child</a></li>
-						<li><a href="#">Sub child</a></li>
-						<li><a href="#">Sub child</a></li>
-						<li><a href="#">Sub child</a></li>
-					</ul>
-				</li>
-				<li><a href="#">Get Directions</a></li>
-				<li><a href="#">Filter Map</a></li>
-				<li><a href="#">Quick Locations</a></li>
-			</ul>
-		</section>	
 	</section>
 </div>
 

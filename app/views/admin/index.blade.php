@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+Admin
+@endsection
+
 @section('content')
 @if (isset($errors))
     @foreach ($errors->all() as $errors)
@@ -18,7 +22,7 @@
 	<div class="row">
 		<div class="medium-6 columns">
 			<h4>Add Amenity</h4>
-			{{Form::open(array('action' => 'AmenitiesController@store', 'data-parsley-validate' => 'true', 'enctype' => 'multipart/form-data'))}}	
+			{{Form::open(array('action' => 'AmenitiesController@store', 'data-parsley-validate' => 'true', 'enctype' => 'multipart/form-data'))}}
 				{{Form::text('name', null, array('data-parsley-required' => 'true', 'placeholder' => 'Amenity Name'))}}
 				<select name="city_id" data-parsley-required="true">
 					@foreach($cities as $city)
@@ -55,7 +59,7 @@
 						<td>{{$amenity->name}}</td>
 					</tr>
 				@endforeach
-			</table>			
+			</table>
 		</div>
 		<div class="medium-6 columns">
 			<h4>Cities</h4>
@@ -70,6 +74,6 @@
 			</table>
 		</div>
 	</div>
-</section>	
+</section>
 
 @endsection
