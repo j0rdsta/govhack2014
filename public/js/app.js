@@ -10,7 +10,6 @@ $(function() {
 var styles = [
 {
 	stylers: [
-	{ hue: "#00ffe6" },
 	{ saturation: -20 }
 	]
 },
@@ -79,7 +78,6 @@ function getMapData() {
 	}).done(function(data) {
 		mapData = data;
 		for (var i = 0; i < mapData.length; i++) {
-			console.log(mapData[i].type);
 			switch (mapData[i].type) {
 				case "KMZ":
 					layers[i] = new google.maps.KmlLayer({
