@@ -99,7 +99,7 @@ class AmenitiesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		return Response::json(Amenity::findOrFail($id)); 
 	}
 
 	/**

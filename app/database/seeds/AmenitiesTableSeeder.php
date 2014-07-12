@@ -9,12 +9,6 @@ class AmenitiesTableSeeder extends Seeder {
 	{
 
 		Amenity::create([
-			"name" => "Public Barbeques",
-			"city_id" => 1,
-			"slug" => "public_barbeques"
-		]);
-
-		Amenity::create([
 			"name" => "Bike Racks",
 			"city_id" => 1,
 			"slug" => "bike_racks",

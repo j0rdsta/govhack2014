@@ -15,8 +15,8 @@ class CreateAmenityLocationsTable extends Migration {
 		Schema::create('amenity_locations', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->decimal('lat',10, 8);
-			$table->decimal('long',10, 8);
+			$table->decimal('lat',18, 9);
+			$table->decimal('long',18, 9);
 			$table->integer('amenity_id')->unsigned();
 			$table->foreign('amenity_id')->references('id')->on('amenities')->onDelete('cascade');
 			$table->timestamps();

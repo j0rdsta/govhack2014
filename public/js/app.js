@@ -81,31 +81,36 @@ function getMapData() {
 	    var infoWindow = new google.maps.InfoWindow(); 
 	    var marker, i;
 	    var bounds = new google.maps.LatLngBounds();
-	
-	    // Info Window Content
-	    var infoWindowContent = [
-	        ['<div class="info_content">' +
-	        '<h3>London Eye</h3>' +
-	        '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +        '</div>'],
-	        ['<div class="info_content">' +
-	        '<h3>Palace of Westminster</h3>' +
-	        '<p>The Palace of Westminster is the meeting place of the House of Commons and the House of Lords, the two houses of the Parliament of the United Kingdom. Commonly known as the Houses of Parliament after its tenants.</p>' +
-	        '</div>']
-	    ];
+
 	    // Loop through our array of markers & place each one on the map  
 	    for( i = 0; i < mapData.length; i++ ) {
 	        var pos = new google.maps.LatLng(mapData[i]['lat'], mapData[i]['long']);
+	        var name = $.ajax({
+				url: "amenities/"+mapData[i]['amenity_id'],
+				success: function(amenityData) {
+					return amenityData.name;
+				} 
+			}).responseText;
+			console.log("blurgh " + name);
 	        bounds.extend(pos);
 	        marker = new google.maps.Marker({
 	            position: pos,
 	            map: map,
-	            title: "Hello"
+	            title: name,
+	            icon: '/assets/amenities/icons/' + mapData[i]['amenity_id'] + '.png'
 	        });
+
+		    // Info Window Content
+		    var infoWindowContent = [
+		        ['<div class="info_content">' +
+		        '<h3><img src="/assets/amenities/icons/'+mapData[i]['amenity_id']+'.png">'+ name +'</h3>' +
+		        '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +        '</div>']
+		    ];	        
 	        
 	        // Allow each marker to have an info window    
 	        google.maps.event.addListener(marker, 'click', (function(marker, i) {
 	            return function() {
-	                infoWindow.setContent(infoWindowContent[1][0]);
+	                infoWindow.setContent(infoWindowContent[0][0]);
 	                infoWindow.open(map, marker);
 	            }
 	        })(marker, i));
