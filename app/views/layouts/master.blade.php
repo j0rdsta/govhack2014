@@ -18,6 +18,9 @@
 
 	@yield('content')
 
+	</div>
+	</div>
+
 	@include('layouts.footer')
 
 	{{ HTML::script('https://maps.googleapis.com/maps/api/js?key=AIzaSyC_7jBY0INF24r5Pt1xtbVQJVn_wFvwsfg&sensor=true') }}
