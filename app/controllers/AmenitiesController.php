@@ -80,7 +80,6 @@ class AmenitiesController extends \BaseController {
 				AmenityLocationsController::store($coordinates, $amenity->id);
 
 			} catch (Exception $e) {
-				dd("hello" . $e);
 				Session::flash('error', $e->getMessage());
 			}
 		}
