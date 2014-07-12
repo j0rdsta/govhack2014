@@ -30,10 +30,6 @@ module.exports = function(grunt) {
         src: [
           'bower_components/jquery/dist/jquery.min.js',
           'bower_components/foundation/js/foundation.min.js',
-          'bower_components/angular/angular.min.js',
-          'bower_components/angular-ui-utils/ui-utils.min.js',
-          'bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js',
-          'bower_components/angular-ui-map/ui-map.min.js',
           'bower_components/parsleyjs/dist/parsley.min.js',
           'build/js/app.min.js'
         ],
