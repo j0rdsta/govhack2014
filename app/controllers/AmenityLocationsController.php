@@ -65,7 +65,6 @@ class AmenityLocationsController extends \BaseController {
 				'lat' => $coord[1]
 			));
 		}
-		die("woot");
 	}
 
 	/**
