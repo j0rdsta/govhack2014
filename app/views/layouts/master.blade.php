@@ -20,7 +20,7 @@
 
 	@include('layouts.footer')
 
-	{{ HTML::script('https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=onGoogleReady') }}
+	{{ HTML::script('https://maps.googleapis.com/maps/api/js?key=AIzaSyC_7jBY0INF24r5Pt1xtbVQJVn_wFvwsfg') }}
 	{{ HTML::script('build/js/app.min.js?v=1.1') }}
 
 </body>
