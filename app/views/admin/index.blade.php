@@ -1,23 +1,33 @@
 @extends('layouts.master')
 
 @section('content')
+@if (isset($errors))
+    @foreach ($errors->all() as $errors)
+        <div data-alert class="alert-box warning rounded">
+            {{ $errors }}
+        </div>
+    @endforeach
+@endif
 
+@if (Session::has('error'))
+    <div data-alert class="alert-box warning rounded">
+        {{ Session::get('error') }}
+    </div>
+@endif
 <section class="admin">
 	<div class="row">
 		<div class="medium-6 columns">
 			<h4>Add Amenity</h4>
 			{{Form::open(array('action' => 'AmenitiesController@store', 'data-parsley-validate' => 'true', 'enctype' => 'multipart/form-data'))}}	
 				{{Form::text('name', null, array('data-parsley-required' => 'true', 'placeholder' => 'Amenity Name'))}}
-				<select name="type" data-parsley-required="true">
-					<option value="JSON">JSON</option>
-					<option value="KMZ">KMZ/KML</option>
-				</select>
 				<select name="city_id" data-parsley-required="true">
 					@foreach($cities as $city)
 						<option value="{{$city->id}}">{{$city->name}}</option>
 					@endforeach
 				</select>
-				{{Form::text('url', null, array('data-parsley-required' => 'true', 'placeholder' => 'URL'))}}
+				{{Form::label('locations', 'Location Coordinates (KML/JSON/CSV)')}}
+				{{Form::file('locations')}}
+				{{Form::label('icon', 'Location Icon')}}
 				{{Form::file('icon')}}
 				{{Form::submit('Submit', array('class' => 'button tiny'))}}
 			{{Form::close()}}

@@ -84,7 +84,7 @@ function getMapData() {
 						url: mapData[i].url,
 						name: mapData[i].name,
 						type: mapData[i].type,
-						suppressInfoWindows: true,
+
 						preserveViewport: true
 					});
 					break;

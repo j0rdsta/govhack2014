@@ -16,8 +16,7 @@ class CreateAmenitiesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name');
-			$table->string('type');
-			$table->string('url');
+			$table->string('slug');
 			$table->integer('city_id')->unsigned();
 			$table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
 			$table->timestamps();

@@ -32,7 +32,7 @@ class AmenitiesController extends \BaseController {
 	 */
 	public function store()
 	{
-		$data = Input::except('icon');
+		$data = Input::except('icon', 'locations');
 
 		$validator = Validator::make($data, Amenity::$rules);
 
@@ -71,6 +71,18 @@ class AmenitiesController extends \BaseController {
 
 			}
 
+		}
+
+		if (Input::hasFile('locations')) {
+			try {
+				$coordinates = AmenityLocationsController::parseKML(Input::file('locations'));
+
+				AmenityLocationsController::store($coordinates, $amenity->id);
+
+			} catch (Exception $e) {
+				dd("hello" . $e);
+				Session::flash('error', $e->getMessage());
+			}
 		}
 
 		Session::flash('success', 'Amenity added successfully');

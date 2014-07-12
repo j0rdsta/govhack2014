@@ -22,12 +22,12 @@ div.map {
 }
 
 section.sidebar {
-	position:fixed;
+	position:absolute;
 	left:0;
-	top: 15%;
+	top: 20%;
 	z-index:66;
 	width:15%;
-	height:85%;
+	height:65%;
 	background: #717171;
 	ul.sidenav {
 		list-style: none;

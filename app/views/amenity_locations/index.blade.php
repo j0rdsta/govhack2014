@@ -1,0 +1,1 @@
+/Applications/AMPPS/www/citycompanion.com/app/views/amenity_locations/index.blade.php
