@@ -1,0 +1,23 @@
+header {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 99;
+	background: white;
+	ul.inline-list {
+		line-height: 80px;
+		vertical-align: middle;
+		margin-bottom: 0;
+		li {
+			line-height: inherit;
+			float: none;
+			display: inline-block;
+			vertical-align: middle;
+			a {
+				font-size: 14px;
+				font-weight: 300;
+				text-transform: uppercase;
+			}
+		}	
+	}
+}
