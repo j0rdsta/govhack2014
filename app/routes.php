@@ -15,3 +15,10 @@ Route::get('/', function()
 {
 	return View::make('home.home');
 });
+
+Route::get('/admin', function()
+{
+	return View::make('admin.index');
+});
+
+Route::resource('cities', 'CitiesController');
