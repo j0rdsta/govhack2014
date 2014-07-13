@@ -11,8 +11,14 @@ Map
 		<div class="map">
 			<div id="map-canvas" class="flex-video"></div>
 			<section class="map-tools">
-				<h4>Toggle:</h4>
-				<ul class="no-bullet toggles"></ul>
+				<dl class="accordion" data-accordion>
+					<dd class="accordion-navigation">
+						<a href="#panel1">Toggle</a>
+						<div id="panel1" class="content active">
+							<ul class="no-bullet toggles"></ul>
+						</div>
+					</dd>
+				</dl>
 			</section>
 		</div>
 
