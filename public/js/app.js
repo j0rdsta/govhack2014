@@ -106,17 +106,12 @@ function getMapData() {
 
 	        markers[i] = marker;
 
-		    // Info Window Content
-		    var infoWindowContent = [
-		        ['<div class="info_content">' +
-		        '<h3><img src="/assets/amenities/icons/'+mapData[i]['amenity_id']+'.png">&nbsp;&nbsp;'+ mapData[i]['amenity']['name'] +'</h3>' +
-		        '<p align="center"><a href="#" class="button tiny">Get directions</a></p>' +        '</div>']
-		    ];
-
 	        // Allow each marker to have an info window
 	        google.maps.event.addListener(marker, 'click', (function(marker, i) {
 	            return function() {
-	                infoWindow.setContent(infoWindowContent[0][0]);
+	                infoWindow.setContent('<div class="info_content">' +
+		        '<h3><img src="/assets/amenities/icons/'+mapData[i]['amenity_id']+'.png">&nbsp;&nbsp;'+ mapData[i]['amenity']['name'] +'</h3>' +
+		        '<p align="center"><a href="#" class="button tiny">Get directions</a></p>' +        '</div>');
 	                infoWindow.open(map, marker);
 	            }
 	        })(marker, i));
