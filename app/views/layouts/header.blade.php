@@ -6,8 +6,8 @@
 			<!-- whatever you want goes here -->
 			<ul class="off-canvas-list">
 				<li><a href="/">Home</a></li>
-				<li><a href="/about">About Us</a></li>
-				<li><a href="/contact">Contact Us</a></li>
+				<li><a href="/map">Map</a></li>
+				<li><a target="_blank" href="http://j0rdsta.github.io/govhack2014/">About Us</a></li>
 			</ul>
 		</aside>
 
