@@ -35,7 +35,7 @@ var amenities=[], map;
 function initialize() {
 	var goldcoast = new google.maps.LatLng(-28.0293756, 153.4218931);
 	var myOptions = {
-		zoom: 11,
+		zoom: 14,
 		center: goldcoast,
 		styles: styles
 	}
@@ -89,12 +89,10 @@ function getMapData() {
 
 	    var infoWindow = new google.maps.InfoWindow();
 	    var marker, i, amenity;
-	    var bounds = new google.maps.LatLngBounds();
 
 	    // Loop through our array of markers & place each one on the map
 	    for( i = 0; i < mapData.length; i++ ) {
 	        var pos = new google.maps.LatLng(mapData[i]['lat'], mapData[i]['long']);
-	        bounds.extend(pos);
 	        marker = new google.maps.Marker({
 	            position: pos,
 	            map: map,
@@ -117,8 +115,6 @@ function getMapData() {
 	        })(marker, i));
 
 	    }
-
-	    map.fitBounds(bounds);
 
 		createToggles();
 	});
