@@ -77,6 +77,9 @@ function getMapData() {
 		url: "amenities"
 	}).done(function(amenityData) {
 		amenities = amenityData;
+		$(".spinner").fadeOut(300, function(){
+			$("ul.toggles").fadeIn(300);
+		});
 	});
 	$.ajax({
 		url: "amenitylocations"
@@ -132,8 +135,12 @@ function getMapData() {
 
 function createToggles() {
 	var toggles = "";
-	for (var i = 0; i < amenities.length; i++) {
-		toggles += '<li><input type="checkbox" id="'+amenities[i].slug+'" onclick="toggleLayers('+i+');"/> '+amenities[i].name+'</li>';
+	if (!amenities.length) {
+		toggles += '<li>Failed to get toggles. <a href="#" onclick="getMapData()">Retry?</a></li>';
+	} else {
+		for (var i = 0; i < amenities.length; i++) {
+			toggles += '<li><input type="checkbox" id="'+amenities[i].slug+'" onclick="toggleLayers('+i+');"/> '+amenities[i].name+'</li>';
+		}
 	}
 	$("ul.toggles").html(toggles);
 }

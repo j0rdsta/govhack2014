@@ -15,7 +15,11 @@ Map
 					<dd class="accordion-navigation">
 						<a href="#panel1">Toggle</a>
 						<div id="panel1" class="content active">
-							<ul class="no-bullet toggles"></ul>
+							<ul class="no-bullet toggles hide"></ul>
+							<div class="spinner">
+								<div class="double-bounce1"></div>
+								<div class="double-bounce2"></div>
+							</div>
 						</div>
 					</dd>
 				</dl>
