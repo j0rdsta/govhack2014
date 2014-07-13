@@ -25,7 +25,7 @@ var styles = [
 	featureType: "poi",
 	elementType: "labels",
 	stylers: [
-	{ visibility: "off" }
+	{ visibility: "on" }
 	]
 }
 ];
