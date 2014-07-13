@@ -71,6 +71,7 @@ function initialize() {
 }
 
 var mapData = [];
+var markers = [];
 
 function getMapData() {
     $.ajax({
@@ -99,8 +100,11 @@ function getMapData() {
 	            map: map,
 	            title: mapData[i]['amenity']['name'],
 	            icon: '/assets/amenities/icons/' + mapData[i]['amenity_id'] + '.png',
-	            category: mapData[i]['amenity']['slug']
+	            category: mapData[i]['amenity']['slug'],
+	            visible: false
 	        });
+
+	        markers[i] = marker;
 
 		    // Info Window Content
 		    var infoWindowContent = [
@@ -131,7 +135,7 @@ function createToggles() {
 		toggles += '<li>Failed to get toggles. <a href="#" onclick="getMapData()">Retry?</a></li>';
 	} else {
 		for (var i = 0; i < amenities.length; i++) {
-			toggles += '<li><input type="checkbox" id="'+amenities[i].slug+'" onclick="toggleLayers('+i+');"/> '+amenities[i].name+'</li>';
+			toggles += '<li><input type="checkbox" id="'+amenities[i].slug+'" onclick="toggleLayers('+amenities[i].slug+');"/> '+amenities[i].name+'</li>';
 		}
 	}
 	$("ul.toggles").html(toggles);
@@ -139,12 +143,12 @@ function createToggles() {
 
 function toggleLayers(i)
 {
-	if(amenities[i].getMap()==null) {
-		amenities[i].setMap(map);
+	for(var j = 0; j < markers.length; j++) {
+		if (markers[j].category == i.id) {
+			markers[j].setVisible(true);
+		}
 	}
-	else {
-		amenities[i].setMap(null);
-	}
+
 	// document.getElementById('status').innerHTML += "toggleLayers("+i+") [setMap("+layers[i].getMap()+"] returns status: "+layers[i].getStatus()+"<br>";
 }
 
