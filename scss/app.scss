@@ -38,3 +38,21 @@
 //   "foundation/components/type",
 //   "foundation/components/offcanvas",
 //   "foundation/components/visibility";
+
+header {
+	margin-bottom: emCalc(30);
+
+	img {
+		padding: emCalc(10) 0;
+	}
+
+	.bottom {
+		background: $primary-color;
+
+		h2 {
+			padding: emCalc(15) 0;
+			color: #fff;
+		}
+	}
+
+}
