@@ -10,7 +10,7 @@ class AmenityLocationsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return Response::json(AmenityLocation::all());
+		return Response::json(AmenityLocation::with('amenity')->get());
 	}
 
 
