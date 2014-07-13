@@ -30,7 +30,7 @@ var styles = [
 }
 ];
 
-var layers=[], map;
+var amenities=[], map;
 
 function initialize() {
 	var goldcoast = new google.maps.LatLng(-28.0293756, 153.4218931);
@@ -73,31 +73,38 @@ function initialize() {
 var mapData = [];
 
 function getMapData() {
+    $.ajax({
+		url: "amenities"
+	}).done(function(amenityData) {
+		amenities = amenityData;
+	});		
 	$.ajax({
 		url: "amenitylocations"
 	}).done(function(data) {
 		mapData = data;
 
 	    var infoWindow = new google.maps.InfoWindow(); 
-	    var marker, i;
+	    var marker, i, amenity;
 	    var bounds = new google.maps.LatLngBounds();
 
 	    // Loop through our array of markers & place each one on the map  
 	    for( i = 0; i < mapData.length; i++ ) {
 	        var pos = new google.maps.LatLng(mapData[i]['lat'], mapData[i]['long']);
-	        var name = $.ajax({
-				url: "amenities/"+mapData[i]['amenity_id'],
-				success: function(amenityData) {
-					return amenityData.name;
-				} 
-			}).responseText;
-			console.log("blurgh " + name);
+	        $.ajax({
+	        	async: false,
+				url: "amenities/"+mapData[i]['amenity_id']
+			}).done(function(amenityData) {
+				amenity = amenityData;
+				console.log("blurgh " + amenity.slug);
+			});	
+			console.log("blurgh2 " + amenity.slug);
 	        bounds.extend(pos);
 	        marker = new google.maps.Marker({
 	            position: pos,
 	            map: map,
-	            title: name,
-	            icon: '/assets/amenities/icons/' + mapData[i]['amenity_id'] + '.png'
+	            title: amenity.name,
+	            icon: '/assets/amenities/icons/' + mapData[i]['amenity_id'] + '.png',
+	            category: amenity.slug
 	        });
 
 		    // Info Window Content
@@ -125,8 +132,8 @@ function getMapData() {
 
 function createToggles() {
 	var toggles = "";
-	for (var i = 0; i < layers.length; i++) {
-		toggles += '<li><input type="checkbox" id="layer_'+i+'" onclick="toggleLayers('+i+');"/> '+layers[i].name+'</li>';
+	for (var i = 0; i < amenities.length; i++) {
+		toggles += '<li><input type="checkbox" id="'+amenities[i].slug+'" onclick="toggleLayers('+i+');"/> '+amenities[i].name+'</li>';
 	}
 	$("ul.toggles").html(toggles);
 }
