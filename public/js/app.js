@@ -145,7 +145,10 @@ function toggleLayers(i)
 {
 	for(var j = 0; j < markers.length; j++) {
 		if (markers[j].category == i.id) {
-			markers[j].setVisible(true);
+			if (markers[j].visible)
+				markers[j].setVisible(false);
+			else
+				markers[j].setVisible(true);
 		}
 	}
 
