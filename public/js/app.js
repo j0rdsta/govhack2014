@@ -94,7 +94,6 @@ function getMapData() {
 	    for( i = 0; i < mapData.length; i++ ) {
 	        var pos = new google.maps.LatLng(mapData[i]['lat'], mapData[i]['long']);
 	        $.ajax({
-	        	async: false,
 				url: "amenities/"+mapData[i]['amenity_id']
 			}).done(function(amenityData) {
 				amenity = amenityData;
