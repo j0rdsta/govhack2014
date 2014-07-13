@@ -105,8 +105,8 @@ function getMapData() {
 		    // Info Window Content
 		    var infoWindowContent = [
 		        ['<div class="info_content">' +
-		        '<h3><img src="/assets/amenities/icons/'+mapData[i]['amenity_id']+'.png">'+ mapData[i]['amenity']['name'] +'</h3>' +
-		        '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +        '</div>']
+		        '<h3><img src="/assets/amenities/icons/'+mapData[i]['amenity_id']+'.png">&nbsp;&nbsp;'+ mapData[i]['amenity']['name'] +'</h3>' +
+		        '<p align="center"><a href="#" class="button tiny">Get directions</a></p>' +        '</div>']
 		    ];
 
 	        // Allow each marker to have an info window
