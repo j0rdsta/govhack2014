@@ -10,7 +10,7 @@ Map
 	<section class="content">
 		<div class="map">
 			<div id="map-canvas" class="flex-video"></div>
-			<section class="map-tools">
+			<section class="map-tools small-12 medium-4 large-3 columns">
 				<dl class="accordion" data-accordion>
 					<dd class="accordion-navigation">
 						<a href="#panel1">Toggle</a>

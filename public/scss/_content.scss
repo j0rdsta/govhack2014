@@ -1,10 +1,11 @@
 section.content {
 	// height: 100%;
+	position: relative;
 	section.map-tools {
 		position: absolute;
 		background: white;
 		z-index: 99;
-		top: 20%;
+		top: 10%;
 		right: 5%;
 		padding:20px;
 	}
