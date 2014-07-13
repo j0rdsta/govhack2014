@@ -40,6 +40,8 @@ class AmenitiesController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
+		$data['slug'] = str_replace(' ', '_', strtolower(trim($data['name'])));
+
 		$amenity = Amenity::create($data);
 
 		if (Input::hasFile('icon')) {
