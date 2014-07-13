@@ -1,11 +1,11 @@
 $(document).foundation();
 
+// $(function() {
+// 	$('ul.sidenav li.has-child').click(function() {
+// 		$(this).find('ul.child').slideToggle();
+// 	});
+// });
 
-$(function() {
-	$('ul.sidenav li.has-child').click(function() {
-		$(this).find('ul.child').slideToggle();
-	});
-});
 // https://developers.google.com/maps/documentation/javascript/styling#styling_the_default_map
 var styles = [
 {
@@ -77,17 +77,17 @@ function getMapData() {
 		url: "amenities"
 	}).done(function(amenityData) {
 		amenities = amenityData;
-	});		
+	});
 	$.ajax({
 		url: "amenitylocations"
 	}).done(function(data) {
 		mapData = data;
 
-	    var infoWindow = new google.maps.InfoWindow(); 
+	    var infoWindow = new google.maps.InfoWindow();
 	    var marker, i, amenity;
 	    var bounds = new google.maps.LatLngBounds();
 
-	    // Loop through our array of markers & place each one on the map  
+	    // Loop through our array of markers & place each one on the map
 	    for( i = 0; i < mapData.length; i++ ) {
 	        var pos = new google.maps.LatLng(mapData[i]['lat'], mapData[i]['long']);
 	        $.ajax({
@@ -96,7 +96,7 @@ function getMapData() {
 			}).done(function(amenityData) {
 				amenity = amenityData;
 				console.log("blurgh " + amenity.slug);
-			});	
+			});
 			console.log("blurgh2 " + amenity.slug);
 	        bounds.extend(pos);
 	        marker = new google.maps.Marker({
@@ -112,9 +112,9 @@ function getMapData() {
 		        ['<div class="info_content">' +
 		        '<h3><img src="/assets/amenities/icons/'+mapData[i]['amenity_id']+'.png">'+ name +'</h3>' +
 		        '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +        '</div>']
-		    ];	        
-	        
-	        // Allow each marker to have an info window    
+		    ];
+
+	        // Allow each marker to have an info window
 	        google.maps.event.addListener(marker, 'click', (function(marker, i) {
 	            return function() {
 	                infoWindow.setContent(infoWindowContent[0][0]);
@@ -122,7 +122,7 @@ function getMapData() {
 	            }
 	        })(marker, i));
 
-	    }		
+	    }
 
 	    map.fitBounds(bounds);
 
@@ -140,11 +140,11 @@ function createToggles() {
 
 function toggleLayers(i)
 {
-	if(layers[i].getMap()==null) {
-		layers[i].setMap(map);
+	if(amenities[i].getMap()==null) {
+		amenities[i].setMap(map);
 	}
 	else {
-		layers[i].setMap(null);
+		amenities[i].setMap(null);
 	}
 	// document.getElementById('status').innerHTML += "toggleLayers("+i+") [setMap("+layers[i].getMap()+"] returns status: "+layers[i].getStatus()+"<br>";
 }
